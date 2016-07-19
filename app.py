@@ -3,11 +3,11 @@ __author__ = 'spousty'
 from bottle import route, run, DEBUG
 import os
 
-
-
 @route('/')
 def index():
-	return "<h1> My 3nd Custom OpenShift without DB</h1>"
+	return "<h1> hello OpenShift Ninja without DB</h1>"
+
+# since this is a read only talk to the replicas
 @get('/db')
 def dbexample():
 	print(os.environ.get('POSTGRESQL_USER'))
@@ -29,6 +29,9 @@ def dbexample():
 	conn.close()
 
 	return  result_string
-	
+
 if __name__ == '__main__':
 	run(host='0.0.0.0', port=8080, debug=True)
+
+
+
